@@ -6,12 +6,12 @@
         <span class = "nickname">{{room.nickname}}</span>
         <span class = "count">
           <i class = "icon-group"></i>
-          {{room.online || number}}
+          {{room.online | number}}
         </span>
       </div>
       <div class="room-title">
         <i class = "icon-desktop"></i>
-        {{room.room_name || message}}
+        {{room.room_name | message}}
       </div>
     </router-link>
   </div>

@@ -12,6 +12,20 @@ Vue.use(VueAxios, Axios)
 
 Vue.config.productionTip = false
 
+Vue.filter('number', v => {
+  if (v > 10000) {
+    return (v / 10000).toFixed() + '万'
+  }
+  return v
+})
+
+Vue.filter('message', v => {
+  if (v.length > 12) {
+    return v.substr(0, 10) + '...'
+  }
+  return v
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
