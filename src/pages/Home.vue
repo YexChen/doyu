@@ -26,7 +26,8 @@ export default {
       showLoading : true,
       error : false,
       roomList : [],
-      page : 0
+      page : 0,
+      pageSize : 20
     }
   },
   components : {
@@ -37,7 +38,7 @@ export default {
   },
   methods : {
     getInfo(page){
-      this.$http.get(`/douyuapi/RoomApi/live?offset=1&limit=20`).then(res=>{
+      this.$http.get(`/douyuapi/RoomApi/live?offset=${page*this.pageSize}&limit=${this.pageSize}`).then(res=>{
         this.error = false
         this.roomList = this.roomList.concat(res.data.data)
         setTimeout(()=>{
